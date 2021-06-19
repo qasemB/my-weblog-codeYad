@@ -37,85 +37,13 @@
     </div>
 
     <div class="row justify-content-center align-items-center">
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
 
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
+    @foreach ($bestArticles as $best)
 
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
+    <livewire:index.article-card :article="$best">
+    @endforeach
 
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
+
     </div>
 
 
@@ -132,85 +60,10 @@
 
 
     <div class="row justify-content-center align-items-center">
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
+        @foreach ($newArticles as $new)
 
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
-
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
-
-    <div class="col-11 col-md-3 px-3 py-4">
-        <div class="card hover_shadow hover_up">
-        <a href="/article.html">
-        <div class="p-0 over_hidden card-header h_10 d-flex align-items-center justify-content-center">
-            <img src="./assets/images/articles/article1.jpg" alt="" class="h-100">
-        </div>
-        <div class="card-body px-1 py-2">
-            <h5 class="text-center text-primary">عنوان مقاله 1</h5>
-            <p class="text-justify text-right font_0_9 text-secondary">
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            توضیح کوتاه در مورد این مقاله
-            </p>
-            <a href="#" class="btn btn-primary cursor_pointer_shadow rounded_5 px-3">ادامه مقاله</a>
-        </div>
-        </a>
-        </div>
-    </div>
+        <livewire:index.article-card :article="$new">
+        @endforeach
     </div>
 
 
