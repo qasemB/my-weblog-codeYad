@@ -1,6 +1,6 @@
 <header class="container-fluid bg-light shadow sticky-top py-1 w_100vw">
     <div class="row m-0 justify-content-between w-100 align-items-center">
-      <ul class="d-flex menu_top align-items-center">
+      <ul class="d-flex menu_top align-items-center m-0">
         <li class="logo_top animate__animated animate__flip">
           <img src="/assets/images/logo.png" />
         </li>
