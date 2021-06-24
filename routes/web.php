@@ -4,6 +4,7 @@ use App\Http\Livewire\Article\Article;
 use App\Http\Livewire\Index\Index;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Login;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register' , Register::class);
-Route::get('/login' , Login::class);
+Route::get('/register', Register::class)->middleware('guest');
+Route::get('/login', Login::class)->middleware('guest');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
 
 Route::get('/', Index::class);
 

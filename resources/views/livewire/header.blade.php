@@ -11,10 +11,25 @@
           مقالات
           <span></span>
         </li>
+        @if (auth()->check())
+
         <li class="mx-3 cursor_pointer_text_shadow font_1_1">
-          ورود
+            {{auth()->user()->name}}
+            <span></span>
+          </li>
+        <li class="mx-3 cursor_pointer_text_shadow font_1_1">
+            <a href="/logout">خروج</a>
+            <span></span>
+          </li>
+        @else
+
+        <li class="mx-3 cursor_pointer_text_shadow font_1_1">
+          <a href="/login">
+            ورود
+        </a>
           <span></span>
         </li>
+        @endif
         <li class="d-block d-md-none mx-4">
           <a href="/" class="fas fa-search fa-2x cursor_pointer_text_shadow "></a>
         </li>
