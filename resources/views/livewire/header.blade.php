@@ -2,7 +2,9 @@
     <div class="row m-0 justify-content-between w-100 align-items-center">
       <ul class="d-flex menu_top align-items-center m-0">
         <li class="logo_top animate__animated animate__flip">
-          <img src="/assets/images/logo.png" />
+          <a href="/">
+            <img src="/assets/images/logo.png" />
+          </a>
         </li>
 
         <li class="mx-3 cursor_pointer_text_shadow font_1_1">
@@ -10,7 +12,7 @@
           <span></span>
         </li>
         <li class="mx-3 cursor_pointer_text_shadow font_1_1">
-          درباره ما
+          ورود
           <span></span>
         </li>
         <li class="d-block d-md-none mx-4">
