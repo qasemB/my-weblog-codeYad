@@ -1,6 +1,8 @@
 <main class="main container">
 
     <div class="row my-4">
+
+        {{-- content --------------- --}}
       <div id="articleRight" class="col-12 col-md-8 col-xl-9">
         <div class="p-2 bg-light rounded">
           <h1 class="text-center font_2 py-2">{{$article->h_title}}</h1>
@@ -13,6 +15,7 @@
 
       </div>
 
+        {{-- sidebar --------------- --}}
       <div id="articleLeft" class="col-12 col-md-4 col-xl-3 mt-3 mt-md-0">
         <div class="row bg-light px1 py-5 text-center justify-content-center d-flex rounded w-100 m-auto">
           <div class="image rounded-circle overflow-hidden h_10 w_10 text-center justify-content-center">
@@ -37,36 +40,48 @@
         </div>
 
       </div>
+
+
     </div>
 
+        {{-- comments --------------- --}}
     <div class="row justify-content-center align-items-center alert-secondary p-3">
 
       <div class="row p-3 justify-content-center text-right alert-light d-block mb-4 col-12">
           @foreach (explode("-" , $article->keywords) as $key)
               ( <a href="#">{{$key}}</a> )
           @endforeach
-        {{-- کلمه کلیدی - کلمه کلیدی - کلمه کلیدی --}}
       </div>
 
-      <div class="col-12 row justify-content-center form-group">
-        <input type="text" class="form-control rounded_5 col-12 col-md-8" placeholder="نام نویسنده نظر">
-      </div>
+      @if (auth()->check())
       <div class="col-12 row justify-content-center form-group">
         <h5 class="col-12 text-center">متن نظر:</h5>
-        <textarea rows="10" class="form-control rounded shadow col-12 col-md-8 "></textarea>
+        <textarea rows="10" class="form-control rounded shadow col-12 col-md-8 " wire:model="comment_text"></textarea>
+        @error('comment_text')
+            <small class="text-center text-danger d-block col-12">{{$message}} </small>
+        @enderror
+        <div class="text-center col-12">
+            <button class="btn btn-success rounded_5 mt-3" type="button" wire:click="addComment">ثبت نظر</button>
+        </div>
       </div>
+      @else
+      <p class="text-primary text-center ">
+          <a href="/login">لطفا جهت ثبت نظر وارد شوید</a>
+      </p>
+      @endif
 
       <div class="col-12 col-md-11 bg-white p-3">
 
-        @foreach ($article->comments as $com)
+        @foreach ($comments as $com)
 
         <div class="row my-2 d-block p-2 rounded shadow-sm border_1 col-11 m-auto shadow">
           <div class="row justify-content-lg-between w-100 m-auto">
             <h6 class="text-right text-success">{{$com->user->name}} <span class="text-danger">{{$com->created_at->diffForHumans()}}</span></h6>
+            @if ($com->user_id == auth()->user()->id)
             <span>
               <i class="fas fa-trash text-danger cursor_pointer_text_shadow mx-2"></i>
-              <i class="fas fa-edit text-success cursor_pointer_text_shadow mx-2"></i>
             </span>
+            @endif
           </div>
           <div class=" w-100 pb-3">
             <p class="text-justify">{{$com->text}}</p>
