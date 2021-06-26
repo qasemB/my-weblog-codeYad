@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/animate.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>آسان آموز برنامه نویسی</title>
 
     @livewireStyles
@@ -26,4 +27,17 @@
     <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="/assets/js/grid.js"></script>
     @livewireScripts
+
+    <script>
+        window.livewire.on('showAlert' , function(message){
+            Swal.fire({
+                position: 'top-start',
+                icon: 'success',
+                title: message,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
+    </script>
+
   </body>

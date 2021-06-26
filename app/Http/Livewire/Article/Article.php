@@ -14,6 +14,12 @@ class Article extends Component
     public $article;
     public $comment_text = "";
 
+    public function deleteComment($id)
+    {
+        Comment::find($id)->delete();
+        $this->emit('showAlert', "نظر با موفقیت حذف شد");
+    }
+
     public function addComment()
     {
         $this->validate([
@@ -29,6 +35,7 @@ class Article extends Component
         $comment->save();
 
         $this->comment_text = "";
+        $this->emit('showAlert', "نظر با موفقیت ثبت شد");
     }
 
     public function mount($id)

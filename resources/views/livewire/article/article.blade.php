@@ -79,7 +79,7 @@
             <h6 class="text-right text-success">{{$com->user->name}} <span class="text-danger">{{$com->created_at->diffForHumans()}}</span></h6>
             @if ($com->user_id == auth()->user()->id)
             <span>
-              <i class="fas fa-trash text-danger cursor_pointer_text_shadow mx-2"></i>
+              <i class="fas fa-trash text-danger cursor_pointer_text_shadow mx-2" wire:click="deleteComment({{$com->id}})"></i>
             </span>
             @endif
           </div>
