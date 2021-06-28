@@ -55,13 +55,18 @@
 
       @if (auth()->check())
       <div class="col-12 row justify-content-center form-group">
-        <h5 class="col-12 text-center">متن نظر:</h5>
-        <textarea rows="10" class="form-control rounded shadow col-12 col-md-8 " wire:model="comment_text"></textarea>
+        <h5 class="col-12 text-center">{{$isAnswer ==1 ? 'متن پاسخ' : 'متن نظر'}}</h5>
+        <textarea rows="10" class="form-control rounded shadow col-12 col-md-8 {{$isAnswer == 1 ? 'alert-warning' :''}}"  wire:model="comment_text"></textarea>
         @error('comment_text')
             <small class="text-center text-danger d-block col-12">{{$message}} </small>
         @enderror
         <div class="text-center col-12">
+            @if ($isAnswer == 1 )
+            <button class="btn btn-warning rounded_5 mt-3" type="button" wire:click="addAnswer">ثبت پاسخ</button>
+            <button class="btn btn-secondary rounded_5 mt-3" type="button" wire:click="canselAnswer">انصراف</button>
+            @else
             <button class="btn btn-success rounded_5 mt-3" type="button" wire:click="addComment">ثبت نظر</button>
+            @endif
         </div>
       </div>
       @else
@@ -85,19 +90,27 @@
           </div>
           <div class=" w-100 pb-3">
             <p class="text-justify">{{$com->text}}</p>
-            <button class="btn btn-primary rounded_5 px-3 ">پاسخ</button>
+            <button class="btn btn-primary rounded_5 px-3 " wire:click="getCommentToAnswer({{$com}})">پاسخ</button>
           </div>
-          {{-- <div class="answer shadow-sm alert-success p-2">
-            <h6 class="text-right text-primary">پاسخ</h6>
-            <div class="row justify-content-lg-between w-100 m-auto">
-              <h6 class="text-right text-info">عباس در تاریخ 99/12/20</h6>
-              <span>
-                <i class="fas fa-trash text-danger cursor_pointer_text_shadow mx-2"></i>
-                <i class="fas fa-edit text-success cursor_pointer_text_shadow mx-2"></i>
-              </span>
+
+
+          @foreach ($answer as $ans)
+            @if ($ans->parent_id == $com->id)
+            <div class="answer shadow-sm alert-success p-2">
+                <h6 class="text-right text-primary">پاسخ</h6>
+                <div class="row justify-content-lg-between w-100 m-auto">
+                <h6 class="text-right text-info">{{$ans->user->name}} در تاریخ {{$ans->created_at->diffForHumans()}}</h6>
+                <span>
+                    <i class="fas fa-trash text-danger cursor_pointer_text_shadow mx-2" wire:click="deleteComment({{$ans->id}})"></i>
+                </span>
+                </div>
+                <p >{{$ans->text}}</p>
             </div>
-            <p >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi eveniet maiores distinctio ex maxime minus, deleniti nam in. Voluptas nulla neque mollitia harum. Similique, corporis? Quae temporibus cupiditate quo quis!</p>
-          </div> --}}
+            @endif
+          @endforeach
+
+
+
         </div>
         @endforeach
 
