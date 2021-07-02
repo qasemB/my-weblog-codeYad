@@ -4,6 +4,7 @@ use App\Http\Livewire\Article\Article;
 use App\Http\Livewire\Index\Index;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Search\Search;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,4 @@ Route::get('/logout', function () {
 Route::get('/', Index::class);
 
 Route::get('/article/{id}', Article::class);
+Route::get('/search/{catId}/{char?}', Search::class);

@@ -8,7 +8,7 @@
         </li>
 
         <li class="mx-3 cursor_pointer_text_shadow font_1_1">
-          مقالات
+          <a href="/search/0">مقالات</a>
           <span></span>
         </li>
         @if (auth()->check())
@@ -34,13 +34,18 @@
           <a href="/" class="fas fa-search fa-2x cursor_pointer_text_shadow "></a>
         </li>
       </ul>
+
+
       <div class="col-12 col-md-4 form-group search_box  d-none d-md-block">
         <input
           type="text"
           class="form-control rounded_5 placeholder_gray shadow-sm"
           placeholder="دنبال چی می گردی؟"
+          wire:model="char"
         />
-        <a href="/search.html" class="fas fa-search search_btn"></a>
+        <a href="/search/0/{{$char}}" class="fas fa-search search_btn"></a>
       </div>
+
+
     </div>
   </header>
