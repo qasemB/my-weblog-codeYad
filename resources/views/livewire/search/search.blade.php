@@ -30,8 +30,10 @@
 
 
         @foreach ($articles as $article)
-        <livewire:index.article-card :article="$article">
+        <livewire:index.article-card :article="$article" :key="$article->id">
         @endforeach
+
+        {{$articles->links('livewire.utils.pagination-links')}}
 
       </div>
 
